@@ -1,0 +1,1 @@
+{"root":["./manifest.config.ts","./vite.config.ts","./src/components/InputText.vue","./src/components/Select.vue","./src/content/inject.ts","./src/content/main.ts","./src/content/views/App.vue","./src/popup/App.vue","./src/popup/main.ts","./src/sidepanel/App.vue","./src/sidepanel/main.ts","./src/types/HttpMethod.d.ts"],"version":"5.8.3"}

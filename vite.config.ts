@@ -24,4 +24,20 @@ export default defineConfig({
       ],
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        // Force the compiler to recognize inject.ts
+        interceptor: 'src/content/inject.ts',
+      },
+      output: {
+        // This forces the filename to stay exactly as "interceptor.js"
+        entryFileNames: (chunkInfo) => {
+          return chunkInfo.name === 'interceptor' 
+            ? 'assets/[name].js' 
+            : 'assets/[name]-[hash].js';
+        },
+      },
+    },
+  },
 })

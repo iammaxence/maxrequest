@@ -18,10 +18,18 @@ export default defineManifest({
     js: ['src/content/main.ts'],
     matches: ['https://*/*'],
   }],
+  web_accessible_resources:[
+    {
+      resources: ['assets/*.js'],
+      matches: ["<all_urls>"]
+    }
+  ],
   permissions: [
     'sidePanel',
     'contentSettings',
+    'tabs'
   ],
+  host_permissions: ["<all_urls>"],
   side_panel: {
     default_path: 'src/sidepanel/index.html',
   },
