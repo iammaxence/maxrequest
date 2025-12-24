@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       {
         __fromExtension: true,
         type: "SET_MOCK",
-        payload: msg.payload, // { method, urlPart, jsonResponse }
+        payload: msg.payload,
       },
       "*"
     );

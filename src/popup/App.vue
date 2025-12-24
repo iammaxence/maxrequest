@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    Popup
+    Please, open the side panel
   </div>
 </template>
 

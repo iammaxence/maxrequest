@@ -1,31 +1,31 @@
 <script setup lang="ts">
-  import { ref } from "vue";
-  
-  const props = defineProps<{
-    modelValue: string;
-    label: string;
-  }>();
-  
-  const emit = defineEmits<{
-    (e: "update:modelValue", v: string): void;
-  }>();
-  
-  const isFocused = ref(false);
-  
-  function onInput(e: Event) {
-    emit("update:modelValue", (e.target as HTMLInputElement).value);
-  }
+import { ref } from "vue";
+
+const props = defineProps<{
+  modelValue: string;
+  label: string;
+}>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", v: string): void;
+}>();
+
+const isFocused = ref(false);
+
+function onInput(e: Event) {
+  emit("update:modelValue", (e.target as HTMLTextAreaElement).value);
+}
 </script>
   
 <template>
-  <div class="v3input" :class="{ focused: isFocused }">
+  <div class="v3textarea" :class="{ focused: isFocused }">
     <div class="field">
       <label class="label">
         {{ label }}
       </label>
-      <input
+
+      <textarea
         class="control"
-        type="text"
         :value="modelValue"
         @input="onInput"
         @focus="isFocused = true"
@@ -36,7 +36,7 @@
 </template>
   
 <style scoped>
-.v3input {
+.v3textarea {
   --bg: rgba(255, 255, 255, 0.06);
   --bg2: rgba(255, 255, 255, 0.09);
   --stroke: rgba(255, 255, 255, 0.14);
@@ -69,6 +69,8 @@
   color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
   pointer-events: none;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 
 .control {
@@ -78,8 +80,10 @@
   background: transparent;
   color: var(--text);
   font-size: 15px;
-  line-height: 1.2;
-  padding-top: 10px; /* space for floating label */
+  line-height: 1.35;
+  resize: vertical;
+  min-height: 110px;
+  padding: 0;
 }
 
 .focused .field {
@@ -88,5 +92,4 @@
     0 0 0 4px rgba(var(--accent), 0.18),
     0 0 0 1px rgba(var(--accent), 0.45);
 }
-</style>
-  
+</style>  

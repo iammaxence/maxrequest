@@ -393,6 +393,7 @@
   /* Panel */
   .panel {
     position: absolute;
+    z-index: 2;
     left: 15px;
     right: 15px;
 

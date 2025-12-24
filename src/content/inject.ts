@@ -4,7 +4,7 @@
     enabled: false,
     method: "GET",
     urlPart: "",
-    response: null, // object | string | null
+    response: null,
     status: 200,
     headers: { "Content-Type": "application/json" },
   };
@@ -23,15 +23,13 @@
   }
 
   function setActiveMock(payload: any) {
-    // payload: { method, urlPart, response, enabled?, status? }
     const method = normalizeMethod(payload?.method);
     const urlPart = String(payload?.urlPart ?? "");
-    const enabled = Boolean(payload?.enabled ?? true);
+    const enabled = Boolean(payload?.enabled ?? false);
 
-    // allow response to be either a stringified JSON or an object
-    let response = payload?.jsonResponse ?? null;
+    // Allow response to be either a stringified JSON or an object
+    let response = payload?.response ?? null;
     if (typeof response === "string") {
-      // accept either raw string or JSON string
       const parsed = safeJsonParse(response);
       response = parsed ?? response;
     }
@@ -60,9 +58,9 @@
   }
 
   function matchesMock(url: string, method: any) {
-    //if (!activeMock.enabled) return false;
-    //if (!activeMock.response) return false;
-    //if (!activeMock.urlPart) return false;
+    if (!activeMock.enabled || !activeMock.urlPart){
+      return false;
+    }
 
     return (
       url.includes(activeMock.urlPart) &&

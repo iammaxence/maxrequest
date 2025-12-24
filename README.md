@@ -1,16 +1,19 @@
-# Vue 3 + Vite + CRXJS
+# MaxRequest
 
-This template helps you quickly start developing Chrome extensions with Vue 3, TypeScript and Vite. It includes the CRXJS Vite plugin for seamless Chrome extension development.
+**MaxRequest** is a Chrome extension that intercepts **HTTP(S)** requests and lets you **override responses in real time** — perfect for **mocking APIs**, **testing edge cases**, and **building frontend features** without touching your backend.
 
-## Features
+<p align="center">
+  <img src="./preview.gif" alt="MaxRequest preview" />
+</p>
 
-- Vue 3 with `<script setup>` syntax
-- TypeScript support
-- Vite build tool
-- CRXJS Vite plugin integration
-- Chrome extension manifest configuration
+## ✨ Features
 
-## Quick Start
+- Intercept outgoing HTTP(S) requests
+- Override responses instantly (mocking)
+- Useful for frontend development, QA, demos, and debugging
+- No backend changes required
+
+## 🚀 Getting Started
 
 1. Install dependencies:
 
@@ -32,21 +35,14 @@ npm run dev
 npm run build
 ```
 
-## Project Structure
+## 🧭 Project Structure
 
 - `src/popup/` - Extension popup UI
 - `src/content/` - Content scripts
+- `src/sidepanel` - Sidepanel
 - `manifest.config.ts` - Chrome extension manifest configuration
 
-## Documentation
+## TODO
 
-- [Vue 3 Documentation](https://vuejs.org/)
-- [Vite Documentation](https://vitejs.dev/)
-- [CRXJS Documentation](https://crxjs.dev/vite-plugin)
-
-## Chrome Extension Development Notes
-
-- Use `manifest.config.ts` to configure your extension
-- The CRXJS plugin automatically handles manifest generation
-- Content scripts should be placed in `src/content/`
-- Popup UI should be placed in `src/popup/`
+1. Add Http status
+2. Add unit tests
